@@ -1,3 +1,3 @@
 Hi I'm Bhavya Chaudhari a to be sophie in Electrical Engineering Department in IITBombay.
-SOC has helped a lot to learn new things about coding and image processing which is something I am really interested in.
-My project is based on processing satellite images.
+The project I am working on is about satellite image processing which includes ML and python.
+It is very encouraging to work on this project because coding is something I like to learn a lot and SOC has done that.
