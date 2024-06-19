@@ -1,0 +1,19 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+data=pd.read_csv('/Users/bhavya/Documents/Python/Refactored_Py_DS_ML_Bootcamp-master/14-K-Nearest-Neighbors/Classified Data',index_col=0)
+from sklearn.preprocessing import StandardScaler
+sc=StandardScaler()
+sc.fit(data.drop('TARGET CLASS',axis=1))
+scaled_feat=sc.transform(data.drop('TARGET CLASS',axis=1))
+df_feat=pd.DataFrame(scaled_feat,columns=data.columns[:-1])
+from sklearn.model_selection import train_test_split
+X_train,Y_train,X_test,Y_test=train_test_split(scaled_feat,data['TARGET CLASS'],train_size=0.30)
+from sklearn.neighbors import KNeighborsClassifier
+knn=KNeighborsClassifier(n_neighbors=1)
+knn.fit(X_train,Y_train)
+pred=knn.predict(X_test)
+from sklearn.metrics import classification_report,confusion_matrix
+print(confusion_matrix(Y_test,pred))
+print(classification_report(Y_test,pred))

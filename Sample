@@ -1,0 +1,16 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.datasets import load_iris
+data=load_iris()
+data_frame=pd.DataFrame(data['data'],columns=data['feature_names'])
+data_frame['Target']=data['target']
+def Species(target):
+    if target==0:
+        return 'Setosa'
+    elif target==1:
+        return 'versicolor'
+    else:
+        return 'virginica'
+data_frame['Species']=data_frame['Target'].apply(Species)
+print(data_frame.head())

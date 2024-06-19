@@ -1,0 +1,14 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+df=pd.read_csv('/Users/bhavya/Documents/Python/Refactored_Py_DS_ML_Bootcamp-master/11-Linear-Regression/Ecommerce Customers')
+X=df[['Avg. Session Length','Time on App','Time on Website','Length of Membership']]
+y=df['Yearly Amount Spent']
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=42)
+model=LinearRegression()
+model.fit(X_train,y_train)
+print(model.coef_)
+plt.show()
